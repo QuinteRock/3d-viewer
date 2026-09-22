@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Truck Showroom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="view"></canvas>
+
+      <header class="topbar">
+        <div class="brand">
+          <span class="mark" aria-hidden="true"></span>
+          <div>
+            <p class="eyebrow">Showroom 3D</p>
+            <h1>Food Trucks</h1>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="segmented" role="tablist" aria-label="Seleccionar modelo">
+            <button type="button" data-model="truck1" class="active">
+              Modelo 01
+            </button>
+            <button type="button" data-model="truck2">Modelo 02</button>
+          </div>
+          <button type="button" id="reset" class="ghost">Resetear vista</button>
+        </div>
+      </header>
+
+      <aside class="meta">
+        <p class="label">Unidad seleccionada</p>
+        <h2 id="model-name">Food Truck 01</h2>
+        <p id="model-desc">
+          Cocina abierta y barra de servicio, lista para street food.
+        </p>
+        <p id="model-price">$92,000 USD</p>
+      </aside>
+
+      <footer class="hints" aria-label="Controles">
+        <div class="hint">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="10.5" y="4" width="11" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M11 11.2h10M16 4v7.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="11.4" y="5.1" width="4.4" height="5.4" rx="1.2" fill="currentColor"/>
+            <path d="M8 24.5c2.2 2.4 5 3.6 8 3.6s5.8-1.2 8-3.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7.2 26.4l.4-2.6 2.4 1.1M24.8 26.4l-.4-2.6-2.4 1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Orbitar</span>
+        </div>
+
+        <div class="hint">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="10.5" y="6" width="11" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M11 13.2h10M16 6v7.2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="16.2" y="7.1" width="4.4" height="5.4" rx="1.2" fill="currentColor"/>
+            <path d="M16 2.6v2.2M16 29.4v-2.2M5 16h2.2M24.8 16H27" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M16 1.8l1.2 1.7h-2.4zM16 30.2l1.2-1.7h-2.4zM2.2 16l1.7-1.2v2.4zM29.8 16l-1.7-1.2v2.4z" fill="currentColor"/>
+          </svg>
+          <span>Mover</span>
+        </div>
+
+        <div class="hint">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="10.5" y="5" width="11" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M11 12.2h10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <rect x="14.7" y="6.4" width="2.6" height="5" rx="1.2" fill="currentColor"/>
+            <path d="M16 26.4v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M16 25.2l-1.4 2h2.8zM16 31.6l-1.4-2h2.8z" fill="currentColor"/>
+          </svg>
+          <span>Zoom</span>
+        </div>
+
+        <div class="hint">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="6" y="8" width="20" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            <path
+              d="M12.2 12h7.2M12.2 12v8.2M12.2 16.2h5.1"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.9"
+              stroke-linecap="square"
+            />
+          </svg>
+          <span>Enfocar</span>
+        </div>
+      </footer>
+
+      <div id="loader">
+        <div class="loader-card">
+          <p class="eyebrow">Preparando catálogo</p>
+          <h2>Cargando modelos</h2>
+          <div class="bar" aria-hidden="true">
+            <span id="bar-fill"></span>
+          </div>
+          <p id="loader-copy">Inicializando visor…</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

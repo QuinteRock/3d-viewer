@@ -1,0 +1,286 @@
+:root {
+  --bg: #101214;
+  --ink: #f3eee6;
+  --muted: #a8a29a;
+  --line: rgba(243, 238, 230, 0.12);
+  --panel: rgba(16, 18, 20, 0.62);
+  --gold: #c4a574;
+  --gold-soft: rgba(196, 165, 116, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Instrument Sans", sans-serif;
+}
+
+#view {
+  display: block;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  cursor: grab;
+}
+
+#view:active {
+  cursor: grabbing;
+}
+
+.topbar,
+.meta,
+.hints,
+#loader {
+  position: absolute;
+  z-index: 2;
+}
+
+.topbar {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 28px;
+  pointer-events: none;
+}
+
+.topbar > * {
+  pointer-events: auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mark {
+  width: 11px;
+  height: 36px;
+  border-radius: 99px;
+  background: linear-gradient(180deg, #e8d3ae 0%, var(--gold) 55%, #8a6d3f 100%);
+  box-shadow: 0 0 24px rgba(196, 165, 116, 0.35);
+}
+
+.eyebrow,
+.label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.brand h1,
+.meta h2 {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.brand h1 {
+  font-size: 28px;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.segmented,
+.ghost,
+.loader-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+}
+
+.segmented {
+  display: flex;
+  padding: 4px;
+  border-radius: 999px;
+}
+
+.segmented button,
+.ghost {
+  appearance: none;
+  border: 0;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.segmented button {
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.segmented button.active {
+  background: var(--gold-soft);
+  color: var(--ink);
+}
+
+.ghost {
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ghost:hover,
+.segmented button:hover {
+  color: var(--ink);
+}
+
+.meta {
+  left: 28px;
+  bottom: 92px;
+  max-width: 340px;
+}
+
+.meta h2 {
+  font-size: 34px;
+  margin: 6px 0 8px;
+}
+
+#model-desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 280px;
+}
+
+#model-price {
+  margin-top: 12px;
+  color: var(--gold);
+  font-family: "Instrument Serif", serif;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.hints {
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+}
+
+.hint {
+  min-width: 68px;
+  padding: 4px 8px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: var(--muted);
+}
+
+.hint svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.hint span {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hint:hover {
+  color: var(--gold);
+}
+
+#loader {
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 30%, #1b1d20 0%, #0c0d0f 70%);
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-card {
+  width: min(420px, calc(100% - 40px));
+  padding: 28px;
+  border-radius: 20px;
+}
+
+.loader-card h2 {
+  font-family: "Instrument Serif", serif;
+  font-size: 32px;
+  font-weight: 400;
+  margin: 8px 0 22px;
+}
+
+.bar {
+  height: 2px;
+  background: rgba(243, 238, 230, 0.08);
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+#bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+
+#loader-copy {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .meta {
+    left: 16px;
+    bottom: 84px;
+  }
+
+  .hints {
+    bottom: 16px;
+  }
+
+  .brand h1 {
+    font-size: 24px;
+  }
+}
